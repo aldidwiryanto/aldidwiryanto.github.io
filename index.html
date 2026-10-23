@@ -117,6 +117,18 @@
       transform: none !important;
     }
 
+    /* Permanent Navbar - Always Visible, Never Hide on Scroll */
+    header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 99999 !important;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
@@ -138,8 +150,8 @@
   <!-- Ambient Light -->
   <div class="ambient-bg"></div>
 
-  <!-- STICKY NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#06080F]/80 backdrop-blur-md border-b border-white/[0.08]">
+  <!-- PERMANENT NAVBAR (NEVER HIDES) -->
+  <header class="fixed top-0 left-0 right-0 z-[99999] bg-[#06080F]/90 backdrop-blur-md border-b border-white/[0.08]">
     <div class="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
       
       <!-- Navbar Brand: Profile Photo Avatar + Name -->
