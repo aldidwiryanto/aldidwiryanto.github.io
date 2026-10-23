@@ -88,11 +88,12 @@
     .btn-gradient {
       background-color: #2563EB;
       box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.45);
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: background-color 0.2s ease;
+      transform: none !important;
     }
     .btn-gradient:hover {
       background-color: #1D4ED8;
-      transform: translateY(-2px);
+      transform: none !important;
     }
 
     /* Secondary Glass Button with White Border */
@@ -100,12 +101,20 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
       transition: all 0.2s ease;
+      transform: none !important;
     }
     .btn-glass:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
-      transform: translateY(-2px);
+      transform: none !important;
+    }
+
+    button, a {
+      transform: none !important;
+    }
+    button:hover, a:hover {
+      transform: none !important;
     }
 
     /* Custom Scrollbar */
