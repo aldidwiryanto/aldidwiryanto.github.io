@@ -172,16 +172,25 @@
       background: #334155;
     }
 
-    /* Theme Transition */
-    body, header, .bento-card, .btn-glass, .btn-gradient, .bento-glow-border, #mobileMenu {
-      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    /* Modern View Transitions for Seamless Theme Crossfade (No muddy gray blur or contrast loss) */
+    ::view-transition-group(root) {
+      animation-duration: 0.25s;
+    }
+    ::view-transition-image-pair(root) {
+      isolation: isolate;
+    }
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.25s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      mix-blend-mode: normal;
     }
 
-    /* Ultra-smooth Scroll Fade-in Reveal */
+    /* Ultra-smooth Scroll Fade-in Reveal (Isolated to opacity & transform for zero theme interference) */
     .scroll-fade {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
@@ -199,6 +208,11 @@
     .delay-300 { transition-delay: 300ms; }
 
     @media (prefers-reduced-motion: reduce) {
+      ::view-transition-group(*),
+      ::view-transition-old(*),
+      ::view-transition-new(*) {
+        animation: none !important;
+      }
       .scroll-fade {
         opacity: 1 !important;
         transform: none !important;
@@ -341,7 +355,6 @@
     .profile-photo-frame {
       background: radial-gradient(circle at 50% 35%, #1E293B 0%, #0B1120 100%);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     html.light .profile-photo-frame {
@@ -352,7 +365,6 @@
 
     /* Footer Light Mode */
     footer {
-      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
     html.light footer {
       background-color: #F8FAFC !important;
@@ -1063,7 +1075,14 @@
         sessionStorage.setItem('portfolio_theme', nextTheme);
         localStorage.removeItem('theme');
       } catch (e) {}
-      applyTheme(nextTheme);
+
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          applyTheme(nextTheme);
+        });
+      } else {
+        applyTheme(nextTheme);
+      }
     }
 
     // Initialize Theme - default is always 'dark' when opening the site
