@@ -362,16 +362,10 @@
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02) !important;
     }
 
-    html.light #themeToggleBtn,
-    html.light #themeToggleMobile,
-    html.light #themeToggleHeaderMobile,
     html.light #mobileMenuBtn {
       background-color: #F1F5F9 !important;
       border-color: #E2E8F0 !important;
     }
-    html.light #themeToggleBtn:hover,
-    html.light #themeToggleMobile:hover,
-    html.light #themeToggleHeaderMobile:hover,
     html.light #mobileMenuBtn:hover {
       background-color: #E2E8F0 !important;
     }
@@ -487,49 +481,62 @@
     /* ========================================================
        GLASS THEME SWITCH & SLIDING NAV BUBBLE
        ======================================================== */
+    #themeToggleBtn,
+    #themeToggleMobile,
+    #themeToggleHeaderMobile,
     .theme-switch-glass {
-      position: relative;
-      width: 74px !important;
+      position: relative !important;
+      width: 72px !important;
       height: 38px !important;
       border-radius: 9999px !important;
-      padding: 3px !important;
-      cursor: pointer;
-      user-select: none;
-      flex-shrink: 0;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      background: rgba(255, 255, 255, 0.08) !important;
+      padding: 4px !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      flex-shrink: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      background: #181A22 !important;
       backdrop-filter: blur(16px) !important;
       -webkit-backdrop-filter: blur(16px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.45), 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Disamarin: redup & menyatu */
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
     }
 
+    html.light #themeToggleBtn,
+    html.light #themeToggleMobile,
+    html.light #themeToggleHeaderMobile,
     html.light .theme-switch-glass {
-      background: rgba(255, 255, 255, 0.75) !important;
-      border: 1px solid rgba(210, 225, 245, 0.9) !important;
-      box-shadow: inset 0 2px 5px rgba(180, 198, 224, 0.4), 0 4px 14px rgba(180, 198, 224, 0.35) !important;
+      background: #E7E3DC !important; /* Soft warm cream clay as in user photo 2 */
+      border: 1px solid rgba(210, 205, 195, 0.9) !important;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
 
+    #themeToggleThumb,
+    #themeToggleMobileThumb,
+    #themeToggleHeaderMobileThumb,
     .theme-switch-thumb {
-      position: absolute;
-      top: 3px;
-      left: 3px;
+      position: absolute !important;
+      top: 4px !important;
+      left: 4px !important;
       width: 30px !important;
       height: 30px !important;
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, border-color 0.3s ease;
-      background: linear-gradient(135deg, #1E293B, #0F172A) !important;
-      border: 1px solid rgba(255, 255, 255, 0.25) !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+      border-radius: 9999px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: transform 0.32s cubic-bezier(0.34, 1.25, 0.64, 1), background 0.3s ease !important;
+      background: linear-gradient(135deg, #4D85F6, #366DE7) !important; /* Vivid cornflower blue as in photo 1 */
+      border: none !important;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.4) !important;
     }
 
+    html.light #themeToggleThumb,
+    html.light #themeToggleMobileThumb,
+    html.light #themeToggleHeaderMobileThumb,
     html.light .theme-switch-thumb {
-      background: linear-gradient(135deg, #FFFFFF, #F0F6FF) !important;
-      border: 1px solid rgba(191, 219, 254, 0.95) !important;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2), inset 0 1px 1px #FFFFFF !important;
+      background: linear-gradient(135deg, #2864E8, #1950CE) !important; /* Royal cobalt blue as in photo 2 */
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.35) !important;
     }
 
     .nav-pill-container {
@@ -630,13 +637,8 @@
       <!-- Desktop Actions -->
       <div class="hidden md:flex items-center gap-3">
         <!-- Theme Toggle Horizontal Sliding Switch (Left: Dark, Right: Light) -->
-        <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" 
-                class="theme-switch-glass flex items-center justify-between px-2.5">
-          <i class="fas fa-moon text-xs text-blue-300 pointer-events-none"></i>
-          <i class="fas fa-sun text-xs text-amber-400 pointer-events-none"></i>
-          <span id="themeToggleThumb" class="theme-switch-thumb pointer-events-none">
-            <i id="themeToggleThumbIcon" class="fas fa-moon text-[11px] text-blue-300"></i>
-          </span>
+        <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
+          <span id="themeToggleThumb" class="theme-switch-thumb pointer-events-none"><svg class="w-4 h-4 text-[#0B132B]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
         </button>
 
         <a href="#kontak" 
@@ -648,13 +650,8 @@
 
       <!-- Mobile Right Container: Sliding Switch + Hamburger -->
       <div class="md:hidden flex items-center gap-2.5">
-        <button id="themeToggleHeaderMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" 
-                class="theme-switch-glass flex items-center justify-between px-2.5">
-          <i class="fas fa-moon text-xs text-blue-300 pointer-events-none"></i>
-          <i class="fas fa-sun text-xs text-amber-400 pointer-events-none"></i>
-          <span id="themeToggleHeaderMobileThumb" class="theme-switch-thumb pointer-events-none">
-            <i id="themeToggleHeaderMobileThumbIcon" class="fas fa-moon text-[11px] text-blue-300"></i>
-          </span>
+        <button id="themeToggleHeaderMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
+          <span id="themeToggleHeaderMobileThumb" class="theme-switch-thumb pointer-events-none"><svg class="w-4 h-4 text-[#0B132B]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
         </button>
         <button id="mobileMenuBtn" aria-label="Buka Menu" class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white">
           <i id="menuIcon" class="fas fa-bars text-lg text-white"></i>
@@ -670,13 +667,8 @@
       <a href="#proyek" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Proyek</a>
       <div class="pt-4 flex items-center justify-between gap-3 border-t border-white/[0.08]">
         <span class="text-xs font-semibold text-slate-300">Mode Tampilan</span>
-        <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" 
-                class="theme-switch-glass flex items-center justify-between px-2.5">
-          <i class="fas fa-moon text-xs text-blue-300 pointer-events-none"></i>
-          <i class="fas fa-sun text-xs text-amber-400 pointer-events-none"></i>
-          <span id="themeToggleMobileThumb" class="theme-switch-thumb pointer-events-none">
-            <i id="themeToggleMobileThumbIcon" class="fas fa-moon text-[11px] text-blue-300"></i>
-          </span>
+        <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
+          <span id="themeToggleMobileThumb" class="theme-switch-thumb pointer-events-none"><svg class="w-4 h-4 text-[#0B132B]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
         </button>
       </div>
     </div>
@@ -1270,19 +1262,18 @@
     }
 
     // Theme Toggle Sliding Switch Functionality (Left: Dark, Right: Light)
-    function updateSwitch(btnId, thumbId, thumbIconId, isLight) {
+    const SUN_SVG = `<svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5"/><path d="M12 19.5v2.5"/><path d="m4.93 4.93 1.77 1.77"/><path d="m17.3 17.3 1.77 1.77"/><path d="M2 12h2.5"/><path d="M19.5 12h2.5"/><path d="m6.7 17.3-1.77 1.77"/><path d="m19.07 4.93-1.77 1.77"/></svg>`;
+    const MOON_SVG = `<svg class="w-4 h-4 text-[#0B132B]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+
+    function updateSwitch(btnId, thumbId, isLight) {
       const btn = document.getElementById(btnId);
       const thumb = document.getElementById(thumbId);
-      const thumbIcon = document.getElementById(thumbIconId);
       if (btn) {
         btn.setAttribute('aria-checked', isLight ? 'true' : 'false');
-        btn.removeAttribute('title');
       }
       if (thumb) {
-        thumb.style.transform = isLight ? 'translateX(36px)' : 'translateX(0px)';
-      }
-      if (thumbIcon) {
-        thumbIcon.className = isLight ? 'fas fa-sun text-[11px] text-amber-500' : 'fas fa-moon text-[11px] text-blue-300';
+        thumb.style.transform = isLight ? 'translateX(34px)' : 'translateX(0px)';
+        thumb.innerHTML = isLight ? SUN_SVG : MOON_SVG;
       }
     }
 
@@ -1349,9 +1340,9 @@
       document.documentElement.classList.toggle('dark', !isLight);
       document.documentElement.setAttribute('data-theme', theme);
 
-      updateSwitch('themeToggleBtn', 'themeToggleThumb', 'themeToggleThumbIcon', isLight);
-      updateSwitch('themeToggleMobile', 'themeToggleMobileThumb', 'themeToggleMobileThumbIcon', isLight);
-      updateSwitch('themeToggleHeaderMobile', 'themeToggleHeaderMobileThumb', 'themeToggleHeaderMobileThumbIcon', isLight);
+      updateSwitch('themeToggleBtn', 'themeToggleThumb', isLight);
+      updateSwitch('themeToggleMobile', 'themeToggleMobileThumb', isLight);
+      updateSwitch('themeToggleHeaderMobile', 'themeToggleHeaderMobileThumb', isLight);
     }
 
     function toggleTheme() {
