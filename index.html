@@ -555,6 +555,44 @@
       view-transition-name: none !important;
     }
 
+        /* Glassmorphism Tech & Skill Badges */
+    .tech-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.07), 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+      color: #CBD5E1 !important;
+      border-radius: 8px !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .tech-badge:hover {
+      background: rgba(255, 255, 255, 0.09) !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      color: #FFFFFF !important;
+      transform: translateY(-1px) !important;
+    }
+
+    html.light .tech-badge {
+      background: rgba(255, 255, 255, 0.65) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.85) !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), inset 0 1px 1px #FFFFFF !important;
+      color: #334155 !important;
+    }
+
+    html.light .tech-badge:hover {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: #FFFFFF !important;
+      color: #0F172A !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06), inset 0 1px 1px #FFFFFF !important;
+      transform: translateY(-1px) !important;
+    }
+
     /* Sun & Moon Animated Morphing Transition */
     .theme-icon-moon,
     .theme-icon-sun {
@@ -906,10 +944,10 @@
             </p>
           </div>
           <div class="flex flex-wrap gap-2 pt-4 border-t border-white/[0.08]">
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Figma</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Design System</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Tailwind CSS</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">HTML5/JS</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Figma</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Design System</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Tailwind CSS</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">HTML5/JS</span>
           </div>
         </div>
 
@@ -927,12 +965,12 @@
             </p>
           </div>
           <div class="flex flex-wrap gap-2 pt-4 border-t border-white/[0.08]">
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">PHP</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">MySQL</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare Workers</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">D1 SQLite Database</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Edge API</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">JSON REST</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">PHP</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">MySQL</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare Workers</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">D1 SQLite Database</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Edge API</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">JSON REST</span>
           </div>
         </div>
 
@@ -950,11 +988,11 @@
             </p>
           </div>
           <div class="flex flex-wrap gap-2 pt-4 border-t border-white/[0.08]">
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Python</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Java</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Scikit-Learn</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Git &amp; GitHub</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Algoritma Z-Score</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Python</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Java</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Scikit-Learn</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Git &amp; GitHub</span>
+            <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Algoritma Z-Score</span>
           </div>
         </div>
 
@@ -1025,7 +1063,7 @@
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
             <span class="font-mono text-xs text-slate-300 tracking-wider uppercase">2025 &bull; Prototipe UI/UX</span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
+            <span class="tech-badge px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
               <i class="fab fa-figma mr-1 text-white"></i> Smart Farming
             </span>
           </div>
@@ -1045,11 +1083,11 @@
 
             <!-- Tech Badges -->
             <div class="flex flex-wrap gap-2 pt-1">
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Figma</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">UI/UX Prototyping</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Design System</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">User Flow</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Smart Farming IoT</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Figma</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">UI/UX Prototyping</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Design System</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">User Flow</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Smart Farming IoT</span>
             </div>
 
             <!-- Actions -->
@@ -1073,7 +1111,7 @@
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
             <span class="font-mono text-xs text-slate-300 tracking-wider uppercase">2026 &bull; Cloudflare D1</span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
+            <span class="tech-badge px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
               <i class="fas fa-heartbeat mr-1 text-white"></i> Standar WHO
             </span>
           </div>
@@ -1092,10 +1130,10 @@
 
             <!-- Tech Badges -->
             <div class="flex flex-wrap gap-2 pt-1">
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare Workers</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare D1 SQLite</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Z-Score Algorithm</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">WHO Standards</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare Workers</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare D1 SQLite</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Z-Score Algorithm</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">WHO Standards</span>
             </div>
 
             <!-- Actions -->
@@ -1122,7 +1160,7 @@
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
             <span class="font-mono text-xs text-slate-300 tracking-wider uppercase">2026 &bull; Machine Learning</span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
+            <span class="tech-badge px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
               <i class="fas fa-brain mr-1 text-white"></i> Nutrisi Pangan
             </span>
           </div>
@@ -1141,10 +1179,10 @@
 
             <!-- Tech Badges -->
             <div class="flex flex-wrap gap-2 pt-1">
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Machine Learning</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Python</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Data Analytics</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare Edge</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Machine Learning</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Python</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Data Analytics</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Cloudflare Edge</span>
             </div>
 
             <!-- Actions -->
@@ -1166,7 +1204,7 @@
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
             <span class="font-mono text-xs text-slate-300 tracking-wider uppercase">2026 &bull; Full-Stack Web</span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
+            <span class="tech-badge px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.05] border border-white/10 text-slate-300 w-fit">
               <i class="fas fa-gamepad mr-1 text-white"></i> Top-Up Game
             </span>
           </div>
@@ -1185,10 +1223,10 @@
 
             <!-- Tech Badges -->
             <div class="flex flex-wrap gap-2 pt-1">
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">PHP</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">MySQL</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">QRIS</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Admin Dashboard</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">PHP</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">MySQL</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">QRIS</span>
+              <span class="tech-badge px-2.5 py-1 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-300">Admin Dashboard</span>
             </div>
 
             <!-- Actions -->
