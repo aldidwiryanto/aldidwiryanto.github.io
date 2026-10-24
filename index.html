@@ -177,6 +177,35 @@
       transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
     }
 
+    /* Ultra-smooth Scroll Fade-in Reveal */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      will-change: opacity, transform;
+    }
+
+    .scroll-fade.is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Staggered Delay Utilities */
+    .delay-75 { transition-delay: 75ms; }
+    .delay-100 { transition-delay: 100ms; }
+    .delay-150 { transition-delay: 150ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-250 { transition-delay: 250ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-fade {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
     /* =========================================================================
        LIGHT MODE ARCHITECTURE (Clean, Slate-Minimalist, High-Contrast)
        ========================================================================= */
@@ -385,7 +414,7 @@
       <!-- Desktop Actions -->
       <div class="hidden md:flex items-center gap-3">
         <!-- Theme Toggle Horizontal Sliding Switch (Left: Dark, Right: Light) -->
-        <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" title="Ganti Mode"
+        <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" 
                 class="relative w-16 h-8 rounded-full p-1 bg-[#0A0E1A] border border-white/15 flex items-center justify-between px-2 cursor-pointer transition-colors duration-300 select-none flex-shrink-0">
           <i class="fas fa-moon text-[11px] text-blue-300 pointer-events-none"></i>
           <i class="fas fa-sun text-[11px] text-amber-400 pointer-events-none"></i>
@@ -404,7 +433,7 @@
 
       <!-- Mobile Right Container: Sliding Switch + Hamburger -->
       <div class="md:hidden flex items-center gap-2.5">
-        <button id="themeToggleHeaderMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" title="Ganti Mode"
+        <button id="themeToggleHeaderMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" 
                 class="relative w-16 h-8 rounded-full p-1 bg-[#0A0E1A] border border-white/15 flex items-center justify-between px-2 cursor-pointer transition-colors duration-300 select-none flex-shrink-0">
           <i class="fas fa-moon text-[11px] text-blue-300 pointer-events-none"></i>
           <i class="fas fa-sun text-[11px] text-amber-400 pointer-events-none"></i>
@@ -427,7 +456,7 @@
       <a href="#proyek" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Proyek</a>
       <div class="pt-4 flex items-center justify-between gap-3 border-t border-white/[0.08]">
         <span class="text-xs font-semibold text-slate-300">Mode Tampilan</span>
-        <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" title="Ganti Mode"
+        <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" 
                 class="relative w-16 h-8 rounded-full p-1 bg-[#0A0E1A] border border-white/15 flex items-center justify-between px-2 cursor-pointer transition-colors duration-300 select-none flex-shrink-0">
           <i class="fas fa-moon text-[11px] text-blue-300 pointer-events-none"></i>
           <i class="fas fa-sun text-[11px] text-amber-400 pointer-events-none"></i>
@@ -448,7 +477,7 @@
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
         <!-- Left: Headline & Bio (Clean White Text) -->
-        <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="lg:col-span-7 flex flex-col gap-6 scroll-fade">
 
           <!-- Headline: Pure White Text -->
           <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white leading-[1.12]">
@@ -490,7 +519,7 @@
         </div>
 
         <!-- Right: Profile Spotlight Card (Clean White Outer Border) -->
-        <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="lg:col-span-5 flex flex-col gap-4 scroll-fade delay-150">
           
           <!-- Bento Card: Profile Spotlight -->
           <div class="bento-glow-border">
@@ -542,7 +571,7 @@
       <div class="grid lg:grid-cols-12 gap-10">
         
         <!-- Left: Bio & Academic Credential -->
-        <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="lg:col-span-7 flex flex-col gap-6 scroll-fade">
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Fokus Rekayasa Perangkat Lunak &amp; Komputasi.
           </h2>
@@ -570,7 +599,7 @@
         <!-- Right: 3 Value Pillars -->
         <div class="lg:col-span-5 flex flex-col gap-4">
           
-          <div class="bento-card p-5 flex items-start gap-4">
+          <div class="bento-card p-5 flex items-start gap-4 scroll-fade delay-100">
             <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center flex-shrink-0">
               <i class="fas fa-microchip text-white"></i>
             </div>
@@ -582,7 +611,7 @@
             </div>
           </div>
 
-          <div class="bento-card p-5 flex items-start gap-4">
+          <div class="bento-card p-5 flex items-start gap-4 scroll-fade delay-200">
             <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center flex-shrink-0">
               <i class="fas fa-cloud text-white"></i>
             </div>
@@ -594,7 +623,7 @@
             </div>
           </div>
 
-          <div class="bento-card p-5 flex items-start gap-4">
+          <div class="bento-card p-5 flex items-start gap-4 scroll-fade delay-300">
             <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center flex-shrink-0">
               <i class="fab fa-figma text-white"></i>
             </div>
@@ -615,7 +644,7 @@
     <!-- SECTION: KEAHLIAN & TOOLKIT -->
     <section id="keahlian" class="py-20 max-w-6xl mx-auto px-6 md:px-10">
       
-      <div class="mb-10">
+      <div class="mb-10 scroll-fade">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Teknologi &amp; Toolkit yang Digunakan.
         </h2>
@@ -624,7 +653,7 @@
       <div class="grid md:grid-cols-3 gap-6">
         
         <!-- Category 1: Design & Frontend -->
-        <div class="bento-card p-6 flex flex-col justify-between gap-6">
+        <div class="bento-card p-6 flex flex-col justify-between gap-6 scroll-fade delay-100">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-xl flex-shrink-0">
               <i class="fas fa-layer-group text-white"></i>
@@ -645,7 +674,7 @@
         </div>
 
         <!-- Category 2: Backend & Cloud Edge -->
-        <div class="bento-card p-6 flex flex-col justify-between gap-6">
+        <div class="bento-card p-6 flex flex-col justify-between gap-6 scroll-fade delay-200">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-xl flex-shrink-0">
               <i class="fas fa-server text-white"></i>
@@ -666,7 +695,7 @@
         </div>
 
         <!-- Category 3: Machine Learning & Core Systems -->
-        <div class="bento-card p-6 flex flex-col justify-between gap-6">
+        <div class="bento-card p-6 flex flex-col justify-between gap-6 scroll-fade delay-300">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-xl flex-shrink-0">
               <i class="fas fa-chart-pie text-white"></i>
@@ -692,7 +721,7 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 mt-6">
 
         <!-- 1. Figma -->
-        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl">
+        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl scroll-fade delay-75">
           <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#080C16] border border-white/[0.08] flex items-center justify-center shadow-[inset_0_3px_10px_rgba(0,0,0,0.7),inset_0_-1px_2px_rgba(255,255,255,0.05)] p-4">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsklEQVR4nO2W0YqbQBSG8xBNGu9LMXvRVyhoF2I2FlrMA/RipzGwKO1VUSgb80QFXVYLfQKTvETS26jRS08Zs2nDEo0OM9ZAfjhXifB/Z/45c1qtiy76P/p9/bKzkrjZWuouVgNuux5wkFegi/mlCVvQhDnoggVfrzv1mL/pjlYSFxaZLg2gH8KIIeiCwt78gEvLmq8EoGeVMoN4ik3pzhMCAOhCAHf9NnWALPMVzZMBiPhuTKkDrKXuskaAOXWA1YCL6gMQQ/oABPknBtCFgDoAnvnnHSGJs+o7AfH+fMeoJmzgy9sXLRZa97sK84dMe/eRiflnEAF1AE3YMDd/ANFeDbjpWur6p8brCeMRaKKPM88sNsf0/QN0DBlmpgwLU4atKQPk1eF3bx6jDm/HM95JFrwdb3eVzHk7tvBvtZg33sPIHEJYZPoYwNVDMuo5cdhzEjhecXjlxAp78zKkZc3vATLzdpzmm092ZccpMwgcmyqd3xeORnHnk+cQwSsnpL+NPmUeqhbOfGnzzt840d9GDRmWZADJsioAbyf0VwljCBHhCUQEJxBSByDJP65K+Xf+3QP6ALuZX/0EnGTRiAiZMliEEbIITuD+jMdosnn9I2SzVpg3oBA9ZE6slH3I+IeY7UKHIQwZgioABxBBUed51ub3+taHtjGEqSmDf2q8Hn6HX1j8SPXsxMfjNRuxduLjzDOLzTGNH8cd5E1myFMXyFO3yJtAXrWaJuSqI+ROwiLTjQVAO/NpWfONAhjj2FTofOMAUJb5auYbBXDrqcvzBnDV6KwBEEH+bz2V/lZJqt3MrwjgTuhvlaS6dVWLIEL0t8oax+gG/UL1rQdl9PnnRCn1kOH/uGo9ixkJBL6chZ1vqvm9Pjl3beSqU+SqPh6v2Yh1VR9nvnGxueiiVq7+AFwg/qWc6gzXAAAAAElFTkSuQmCC" alt="Figma" class="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
           </div>
@@ -700,7 +729,7 @@
         </div>
 
         <!-- 2. Canva -->
-        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl">
+        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl scroll-fade delay-150">
           <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#080C16] border border-white/[0.08] flex items-center justify-center shadow-[inset_0_3px_10px_rgba(0,0,0,0.7),inset_0_-1px_2px_rgba(255,255,255,0.05)] p-4">
             <img src="data:image/png;base64,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" alt="Canva" class="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
           </div>
@@ -708,7 +737,7 @@
         </div>
 
         <!-- 3. VS Code -->
-        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl">
+        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl scroll-fade delay-200">
           <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#080C16] border border-white/[0.08] flex items-center justify-center shadow-[inset_0_3px_10px_rgba(0,0,0,0.7),inset_0_-1px_2px_rgba(255,255,255,0.05)] p-4">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADv0lEQVR4nO2ZvWsUQRjGZ97VJogfaSSFQbC5bWyUYGMRsbWwsBObgIWFMWBmLid4gtGZBNTOzn9ABEHZGMzsLRo/Ck935hRUSBELQQIKIrkLEjMyG8479T5mde8L7oEpd+f57b4z88wMQn311VfH5FBxDKhY2sZfPXMfFA+jXhIQMQbUXwfqayctNty5ona94suUVzyFshpQNwuoGAcqNoz5cosAKu21ATmQ11tRd0ljTMRstXGoDRC11Nzqsuutjh+4pwc67RyhbLAFE3GrlnmoA/CrecWV1NzqBNIad8j8vQFMhFfPPDQDqIBk2m8+vbgLiHjSyDzYA3xsr/nMoyGgvmpmHmwB5oq6febP+/vMHG9jHloCYAYMD0cQC/fGNj8ZHAQiVmzNQ+IA194MYq4C4EoDU+uYyWl0+7Zj86gzKUaB+F/jmIdEAfibYeDybWS+qhkgNJ0famieiuNARCmWeSJKkM6dTgwAuFr803ylyU8Ok0dqPjeZOwPE/xHvy4t36LzYb55PDoDJz/UBNksKmLxYnVcgLWjcksFE3EF0YUf5HYkBYC4vNwQolxSTD9GVwm5MxPWY5tdMFvqzXzexMaA1xkxdsoEAJktwYTFOySwjIkZqdesmPY0Cl2eByx/NIZSG7HMNNNe4ZKh/F40HO+v157ZiIQMWngSmvlv9jct5Demg1lf/bsZIs77cVq3EDiscBS6/WUFcDTVkHlUDfEAkOGTTj9vSKMHDEeDyixWEadnnGhP/PpqYH7Ttwm0pABEjkAm+RF/YEgKz8L5Z0TsO4KQXjgIR36KSyAQarryyhgAuPyCuOldCQMXJaBBWD8opA5G3hzCTACu0fxADyZ2tGw3Suc1Zx/pPRAvfXXQjbMc0qjGm/qXmi5KBeFGKAwFMLUcRvZUAmPrTVlmG+g/RlNiNubweD0KuAVOtixJA/c9NzK8DFRdRNlsJc6xAY0FsxvM7iOeTD3NA/cf1s7v/yaF+7Tg9o85YRY/f/8Y7NFtINk4jujAMRLz9O/76gdmkN3rUYeFx4DLeuOCyBKyQ3IYm0sT8oDFcLhkzLtAJyy3lTDgKXH2NW1Ju8uuAxmZzji7M70FxNVM4CFytdBjgPzX7eh8wudS7AEbT+SFgUvUugBEr7AKuniQC4LX7aLGsbH4Ac+n9L0DKK051BiCCCLZgrm79E4AXHa+f69zxevWBAZeztgCprrrgqJLJQsDkRgOAbr1iqgi4HIsOybjSDpe9dclXlsPkMeDq/fabS0977pq1r75Qd+gnbk39qO0MuGMAAAAASUVORK5CYII=" alt="VS Code" class="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
           </div>
@@ -716,7 +745,7 @@
         </div>
 
         <!-- 4. XAMPP -->
-        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl">
+        <div class="bento-card p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl scroll-fade delay-250">
           <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#080C16] border border-white/[0.08] flex items-center justify-center shadow-[inset_0_3px_10px_rgba(0,0,0,0.7),inset_0_-1px_2px_rgba(255,255,255,0.05)] p-4">
             <img src="data:image/png;base64,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" alt="XAMPP" class="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
           </div>
@@ -724,7 +753,7 @@
         </div>
 
         <!-- 5. Google Colab -->
-        <div class="bento-card col-span-2 sm:col-span-1 p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl">
+        <div class="bento-card col-span-2 sm:col-span-1 p-5 sm:p-6 flex flex-col items-center justify-between gap-4 rounded-3xl scroll-fade delay-300">
           <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#080C16] border border-white/[0.08] flex items-center justify-center shadow-[inset_0_3px_10px_rgba(0,0,0,0.7),inset_0_-1px_2px_rgba(255,255,255,0.05)] p-4">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADyElEQVR4nO2YyW5cRRSGP7KIWIQwiDEMQeIJEOIV2DOFAA8ACmzY22k7kqPEU7sb2xBFIQwSKN5gV1kGiSGCgEBAWMASwo4oSIBslG7f67j7oFO+bfdU1fd29yKL+0tHV5ZLp/6/6gx1GnLkyJEjR44cNzlkmdtkhSNi+EAsl8VwVQxbYrkmhl/Fcl4sL8saB/vyZYmT72WxvC+rPK/rBif+KXeJZUoMm2KRnmbYcOvXuGdgX5aqGE7LKnf2R37nlP5NuVm7/SWrPDMUX4Z/xPJceuIF9onhhBjqfZJvWEmEW8QyPrAvQ10MBfXXU0BU5Mu4NBBx3fCqfMbtjvxghyAN234XiYp8HiQfl5itjCKVESQuOyL9Cng2CZv6sMhXlNcoEpeY7kp+8y0erRSoK/mGxfN9bbimiZfE7sDkb7yzx8dZgfrmGR7rDJ0ZfmhZmNjWQsvJfi2GF2SZQ7LEfve1HBXLpeT/12WVw67a9L6lVl+WB1t8KflznXzUomm+a03c89xfOd59sbuJt6mJ4dVg8hteE8Mbrs6HSqXhRgpfx7bOUmuEc4cdR+Qs97XGvoe8U1zio2DyNG+usR8++SD5BqIiF0KcWnIhmuKKb2F1gnUyIOmwPvJfZfFVPcmG91Cn+H1v4QQVr9IyxUwCLD97BaxwJIuvuEw5cLDXdxdWxtj2Cljk8UwCdt403QUscyiLr61FnvCG0RjbewJ8yTKCyDwHMgnQh5lPwBL7M/kqcdArYBTZEzBO7aa8gTM8meoGeuRAOaOAnwJV6GgWX9Eci6lyIDrNH96FJ9kYWhWyXErtp8C+6gT/papCcZmZYB8ociH1xjqMhPvAsTR+4hJLwT4wx1T6TrzgOrF34+TZ/LoYXnGdWIeR7uS1KdZ6HUis5AOFpaMTK6IZvveQbybxjazwoqzxkHu/6Nfwkhi+TQiuyyc84CapLuTjudbQjIu8qYmqlU6/UZn5UNjsRsRs21tIUZ3ncNfXaPYn9YfyMXeI5W8f+YFsjFp1gYd9Vze9Ow/0R75B+CkdA908sOJObDjkR11VPBVMnmiWiwMNMzv2m1zkVlnmRDQzJPIjrph8ESTfNBMXhjBNjWty6xgYTMiRdCev5JVbTwG7QnQsbI7jbHZNLE83heZke36ltgL1nmHjFaHJaDjlLYudsb8ulkkx3N3uqzrHIzpJhcp1pa1UarXxJmwmIUscSJLyPTH8KJY/m36Z+0UM51w5TfPL3CL3arGIJrmizwH3EtYQG2Nb/9YOq02qo87nyJEjR44cOXIwdPwP3P16q2mQhk0AAAAASUVORK5CYII=" alt="Google Colab" class="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
           </div>
@@ -738,7 +767,7 @@
     <!-- SECTION: PORTOFOLIO / KARYA (3 PROJECT ROWS VERTICALLY STACKED) -->
     <section id="proyek" class="py-20 max-w-6xl mx-auto px-6 md:px-10">
       
-      <div class="mb-10">
+      <div class="mb-10 scroll-fade">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Proyek &amp; Implementasi Sistem Nyata.
         </h2>
@@ -748,7 +777,7 @@
       <div class="flex flex-col gap-5">
 
         <!-- PROJECT 1: TANILINK -->
-        <div class="bento-card p-6 sm:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
+        <div class="bento-card p-6 sm:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8 scroll-fade">
           
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
@@ -796,7 +825,7 @@
         </div>
 
         <!-- PROJECT 2: STUNTINGCARE AI -->
-        <div class="bento-card p-6 sm:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
+        <div class="bento-card p-6 sm:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8 scroll-fade delay-100">
           
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
@@ -845,7 +874,7 @@
         </div>
 
         <!-- PROJECT 3: KLASIFIKASI DATA GIZI -->
-        <div class="bento-card p-6 sm:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
+        <div class="bento-card p-6 sm:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8 scroll-fade delay-150">
           
           <!-- Left Column: Period / Meta -->
           <div class="md:w-44 shrink-0 flex flex-col gap-2">
@@ -896,7 +925,7 @@
     <section id="kontak" class="py-20 max-w-6xl mx-auto px-6 md:px-10">
       <!-- Direct Contact Channels: WhatsApp, Instagram, Email, GitHub -->
       
-      <div class="bento-glow-border">
+      <div class="bento-glow-border scroll-fade">
         <div class="bento-glow-inner p-8 sm:p-14 text-center max-w-4xl mx-auto flex flex-col items-center gap-6">
 
           <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -1000,7 +1029,7 @@
       const thumbIcon = document.getElementById(thumbIconId);
       if (btn) {
         btn.setAttribute('aria-checked', isLight ? 'true' : 'false');
-        btn.setAttribute('title', isLight ? 'Mode Terang (Klik untuk Gelap)' : 'Mode Gelap (Klik untuk Terang)');
+        btn.removeAttribute('title');
       }
       if (thumb) {
         if (isLight) {
@@ -1047,6 +1076,28 @@
     applyTheme(savedTheme);
 
     // Bind Click Events
+    
+    // Smooth Scroll Fade-In Observer
+    if ('IntersectionObserver' in window) {
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.scroll-fade').forEach(el => {
+        scrollObserver.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.scroll-fade').forEach(el => el.classList.add('is-visible'));
+    }
+
     ['themeToggleBtn', 'themeToggleMobile', 'themeToggleHeaderMobile'].forEach(id => {
       const btn = document.getElementById(id);
       if (btn) btn.addEventListener('click', toggleTheme);
