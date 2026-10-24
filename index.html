@@ -594,10 +594,13 @@
 
     .nav-sliding-bubble {
       position: absolute;
+      top: 0;
+      left: 0;
       z-index: 1;
       border-radius: 9999px;
-      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
+      will-change: transform, width;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), width 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(16px);
@@ -1281,10 +1284,15 @@
     function updateNavBubble(activeLink) {
       const bubble = document.getElementById('navBubble');
       if (!bubble || !activeLink) return;
-      bubble.style.left = activeLink.offsetLeft + 'px';
-      bubble.style.top = activeLink.offsetTop + 'px';
-      bubble.style.width = activeLink.offsetWidth + 'px';
-      bubble.style.height = activeLink.offsetHeight + 'px';
+      const x = activeLink.offsetLeft;
+      const y = activeLink.offsetTop;
+      const w = activeLink.offsetWidth;
+      const h = activeLink.offsetHeight;
+      bubble.style.left = '0px';
+      bubble.style.top = '0px';
+      bubble.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      bubble.style.width = w + 'px';
+      bubble.style.height = h + 'px';
       bubble.style.opacity = '1';
     }
 
