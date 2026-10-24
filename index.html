@@ -1317,11 +1317,6 @@
     });
 
     navItems.forEach(item => {
-      item.addEventListener('mouseenter', () => updateNavBubble(item));
-      item.addEventListener('mouseleave', () => {
-        const currentActive = document.querySelector('.nav-link-item.active');
-        if (currentActive) updateNavBubble(currentActive);
-      });
       item.addEventListener('click', () => {
         navItems.forEach(i => i.classList.remove('active'));
         item.classList.add('active');
