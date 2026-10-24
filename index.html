@@ -112,6 +112,23 @@
       border-radius: 1.25rem;
     }
 
+    /* Code Snippet Card Syntax Highlighting */
+    .code-kw {
+      color: #38BDF8;
+    }
+    .code-var {
+      color: #94A3B8;
+    }
+    .code-op {
+      color: #64748B;
+    }
+    .code-str {
+      color: #F8FAFC;
+    }
+    .code-fn {
+      color: #38BDF8;
+    }
+
     /* Primary Solid Blue Button */
     .btn-gradient {
       background-color: #2563EB;
@@ -344,6 +361,22 @@
       color: #0F172A !important;
     }
 
+    html.light .code-kw {
+      color: #2563EB !important;
+    }
+    html.light .code-var {
+      color: #475569 !important;
+    }
+    html.light .code-op {
+      color: #64748B !important;
+    }
+    html.light .code-str {
+      color: #0F172A !important;
+    }
+    html.light .code-fn {
+      color: #2563EB !important;
+    }
+
     html.light ::-webkit-scrollbar-track {
       background: #F1F5F9;
     }
@@ -549,22 +582,23 @@
             </div>
           </div>
 
-          <!-- Mini Bento Status Indicators (White Outer & White icons) -->
-          <div class="grid grid-cols-2 gap-3">
-            <div class="bento-card p-4 flex flex-col gap-1.5">
-              <div class="flex items-center gap-2">
-                <i class="fas fa-bolt text-sm text-white"></i>
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Edge Compute</span>
-              </div>
-              <span class="text-xs text-slate-400">Serverless Workers terdistribusi global dengan D1 SQLite DB.</span>
+          <!-- Interactive Code Snippet Bento Card -->
+          <div class="bento-card p-5 sm:p-6 rounded-2xl flex flex-col gap-3 font-mono select-none">
+            <!-- Window Control Dots (Blue, Green, Orange) -->
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-3 h-3 rounded-full bg-[#2563EB]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#059669]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#EA580C]"></span>
             </div>
 
-            <div class="bento-card p-4 flex flex-col gap-1.5">
-              <div class="flex items-center gap-2">
-                <i class="fas fa-diagram-project text-sm text-white"></i>
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Model Presisi</span>
+            <!-- Code Lines -->
+            <div class="flex flex-col gap-2 font-mono text-xs sm:text-sm leading-relaxed tracking-tight">
+              <div>
+                <span class="code-kw font-semibold">const</span> <span class="code-var">role</span> <span class="code-op">=</span> <span class="code-str">"UI/UX + Web"</span><span class="code-op">;</span>
               </div>
-              <span class="text-xs text-slate-400">Klasifikasi machine learning &amp; perhitungan Z-Score baku.</span>
+              <div>
+                <span class="code-fn font-semibold">design</span><span class="code-op">()</span><span class="code-op">.</span><span class="code-fn font-semibold">build</span><span class="code-op">()</span><span class="code-op">.</span><span class="code-fn font-semibold">ship</span><span class="code-op">();</span>
+              </div>
             </div>
           </div>
 
