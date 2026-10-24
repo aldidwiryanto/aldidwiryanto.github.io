@@ -334,9 +334,18 @@
     }
 
     /* Selection Color in Light Mode (Dark Font, Soft Sky-Blue Highlight) */
-    html.light ::selection,
-    html.light *::selection,
-    html.light ::-moz-selection,
+    html.light ::selection {
+      background-color: #BFDBFE !important;
+      color: #0F172A !important;
+    }
+    html.light *::selection {
+      background-color: #BFDBFE !important;
+      color: #0F172A !important;
+    }
+    html.light ::-moz-selection {
+      background-color: #BFDBFE !important;
+      color: #0F172A !important;
+    }
     html.light *::-moz-selection {
       background-color: #BFDBFE !important;
       color: #0F172A !important;
