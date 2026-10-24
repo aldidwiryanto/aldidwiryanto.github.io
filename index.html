@@ -546,6 +546,48 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12), inset 0 1px 2px #FFFFFF !important;
     }
 
+    #themeToggleBtn,
+    #themeToggleMobile,
+    #themeToggleHeaderMobile,
+    #themeToggleThumb,
+    #themeToggleMobileThumb,
+    #themeToggleHeaderMobileThumb {
+      view-transition-name: none !important;
+    }
+
+    /* Sun & Moon Animated Morphing Transition */
+    .theme-icon-moon,
+    .theme-icon-sun {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      width: 16px !important;
+      height: 16px !important;
+      pointer-events: none !important;
+      transform-origin: center center !important;
+      transition: transform 0.45s cubic-bezier(0.34, 1.25, 0.64, 1), opacity 0.3s ease !important;
+    }
+
+    /* Dark Mode (Default): Moon visible, Sun rotated 90deg & scaled to 0 */
+    .theme-icon-moon {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1) !important;
+      opacity: 1 !important;
+    }
+    .theme-icon-sun {
+      transform: translate(-50%, -50%) rotate(90deg) scale(0) !important;
+      opacity: 0 !important;
+    }
+
+    /* Light Mode: Sun visible, Moon rotated -90deg & scaled to 0 */
+    html.light .theme-icon-moon {
+      transform: translate(-50%, -50%) rotate(-90deg) scale(0) !important;
+      opacity: 0 !important;
+    }
+    html.light .theme-icon-sun {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1) !important;
+      opacity: 1 !important;
+    }
+
     .nav-pill-container {
       position: relative;
       display: flex;
@@ -646,7 +688,7 @@
       <div class="hidden md:flex items-center gap-3">
         <!-- Theme Toggle Horizontal Sliding Switch (Left: Dark, Right: Light) -->
         <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
-          <span id="themeToggleThumb" class="theme-switch-thumb pointer-events-none"><svg class="w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span id="themeToggleThumb" class="theme-switch-thumb pointer-events-none"><svg class="theme-icon-moon w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5"/><path d="M12 19.5v2.5"/><path d="m4.93 4.93 1.77 1.77"/><path d="m17.3 17.3 1.77 1.77"/><path d="M2 12h2.5"/><path d="M19.5 12h2.5"/><path d="m6.7 17.3-1.77 1.77"/><path d="m19.07 4.93-1.77 1.77"/></svg></span>
         </button>
 
         <a href="#kontak" 
@@ -658,7 +700,7 @@
       <!-- Mobile Right Container: Sliding Switch + Hamburger -->
       <div class="md:hidden flex items-center gap-2.5">
         <button id="themeToggleHeaderMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
-          <span id="themeToggleHeaderMobileThumb" class="theme-switch-thumb pointer-events-none"><svg class="w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span id="themeToggleHeaderMobileThumb" class="theme-switch-thumb pointer-events-none"><svg class="theme-icon-moon w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5"/><path d="M12 19.5v2.5"/><path d="m4.93 4.93 1.77 1.77"/><path d="m17.3 17.3 1.77 1.77"/><path d="M2 12h2.5"/><path d="M19.5 12h2.5"/><path d="m6.7 17.3-1.77 1.77"/><path d="m19.07 4.93-1.77 1.77"/></svg></span>
         </button>
         <button id="mobileMenuBtn" aria-label="Buka Menu" class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white">
           <i id="menuIcon" class="fas fa-bars text-lg text-white"></i>
@@ -675,7 +717,7 @@
       <div class="pt-4 flex items-center justify-between gap-3 border-t border-white/[0.08]">
         <span class="text-xs font-semibold text-slate-300">Mode Tampilan</span>
         <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
-          <span id="themeToggleMobileThumb" class="theme-switch-thumb pointer-events-none"><svg class="w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span id="themeToggleMobileThumb" class="theme-switch-thumb pointer-events-none"><svg class="theme-icon-moon w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5"/><path d="M12 19.5v2.5"/><path d="m4.93 4.93 1.77 1.77"/><path d="m17.3 17.3 1.77 1.77"/><path d="M2 12h2.5"/><path d="M19.5 12h2.5"/><path d="m6.7 17.3-1.77 1.77"/><path d="m19.07 4.93-1.77 1.77"/></svg></span>
         </button>
       </div>
     </div>
@@ -1279,7 +1321,6 @@
       }
       if (thumb) {
         thumb.style.transform = isLight ? 'translateX(34px)' : 'translateX(0px)';
-        thumb.innerHTML = isLight ? SUN_SVG : MOON_SVG;
       }
     }
 
