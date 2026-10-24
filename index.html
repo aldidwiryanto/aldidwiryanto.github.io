@@ -21,18 +21,25 @@
   <meta name="color-scheme" content="light dark">
   <script>
     try {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = savedTheme || (prefersDark ? 'dark' : 'dark');
-      document.documentElement.setAttribute('data-theme', initialTheme);
-      if (initialTheme === 'light') {
+      // Selalu default ke 'dark' saat awal buka web
+      let activeTheme = sessionStorage.getItem('portfolio_theme');
+      if (!activeTheme) {
+        activeTheme = 'dark';
+        sessionStorage.setItem('portfolio_theme', 'dark');
+      }
+      try { localStorage.removeItem('theme'); } catch (err) {}
+      document.documentElement.setAttribute('data-theme', activeTheme);
+      if (activeTheme === 'light') {
         document.documentElement.classList.add('light');
         document.documentElement.classList.remove('dark');
       } else {
         document.documentElement.classList.add('dark');
         document.documentElement.classList.remove('light');
       }
-    } catch (e) {}
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.classList.add('dark');
+    }
   </script>
 
   <script>
@@ -760,9 +767,6 @@
                 <span>Buka Prototipe Figma</span>
                 <i class="fas fa-external-link-alt text-[10px] text-white"></i>
               </a>
-              <span class="text-xs text-slate-400 flex items-center gap-1.5 pl-1">
-                <i class="fas fa-info-circle text-white"></i> Mencakup problem statement, analisis user persona &amp; arsitektur IoT
-              </span>
             </div>
 
           </div>
@@ -1005,13 +1009,19 @@
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const nextTheme = current === 'light' ? 'dark' : 'light';
       try {
-        localStorage.setItem('theme', nextTheme);
+        sessionStorage.setItem('portfolio_theme', nextTheme);
+        localStorage.removeItem('theme');
       } catch (e) {}
       applyTheme(nextTheme);
     }
 
-    // Initialize Theme
-    const savedTheme = localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme') || 'dark';
+    // Initialize Theme - default is always 'dark' when opening the site
+    let savedTheme = 'dark';
+    try {
+      savedTheme = sessionStorage.getItem('portfolio_theme') || 'dark';
+    } catch (e) {
+      savedTheme = 'dark';
+    }
     applyTheme(savedTheme);
 
     // Bind Click Events
