@@ -71,7 +71,11 @@
     }
 
     ::selection {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(37, 99, 235, 0.45);
+      color: #FFFFFF;
+    }
+    ::-moz-selection {
+      background-color: rgba(37, 99, 235, 0.45);
       color: #FFFFFF;
     }
 
@@ -328,9 +332,18 @@
     html.light footer p {
       color: #64748B !important;
     }
+
+    /* Selection Color in Light Mode (Dark Font, Soft Sky-Blue Highlight) */
+    html.light ::selection,
+    html.light *::selection,
+    html.light ::-moz-selection,
+    html.light *::-moz-selection {
+      background-color: #BFDBFE !important;
+      color: #0F172A !important;
+    }
   </style>
 </head>
-<body class="antialiased text-slate-100 min-h-screen relative selection:bg-white/20 selection:text-white">
+<body class="antialiased text-slate-100 min-h-screen relative">
 
   <!-- Ambient Light -->
   <div class="ambient-bg"></div>
