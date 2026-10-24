@@ -330,10 +330,15 @@
 
       <!-- Desktop Actions -->
       <div class="hidden md:flex items-center gap-3">
-        <!-- Theme Toggle Switch Button (Dark / Light) -->
-        <button id="themeToggleBtn" type="button" aria-label="Ganti Tema Terang/Gelap" title="Ganti Tema"
-                class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white hover:border-white/25 transition cursor-pointer">
-          <i id="themeToggleIcon" class="fas fa-sun text-base text-amber-400"></i>
+        <!-- Theme Toggle Horizontal Sliding Switch (Left: Dark, Right: Light) -->
+        <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" title="Ganti Mode"
+                class="relative w-16 h-8 rounded-full p-1 bg-[#0A0E1A] border border-white/15 flex items-center justify-between px-2 cursor-pointer transition-colors duration-300 select-none flex-shrink-0">
+          <i class="fas fa-moon text-[11px] text-blue-300 pointer-events-none"></i>
+          <i class="fas fa-sun text-[11px] text-amber-400 pointer-events-none"></i>
+          <span id="themeToggleThumb"
+                class="absolute left-1 top-1 w-6 h-6 rounded-full bg-slate-800 border border-white/20 shadow-md flex items-center justify-center transition-transform duration-300 ease-in-out pointer-events-none transform translate-x-0">
+            <i id="themeToggleThumbIcon" class="fas fa-moon text-[10px] text-blue-300"></i>
+          </span>
         </button>
 
         <a href="#kontak" 
@@ -343,11 +348,16 @@
         </a>
       </div>
 
-      <!-- Mobile Right Container: Theme Toggle + Hamburger -->
-      <div class="md:hidden flex items-center gap-2">
-        <button id="themeToggleHeaderMobile" type="button" aria-label="Ganti Tema" title="Ganti Tema"
-                class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white cursor-pointer">
-          <i id="themeToggleHeaderMobileIcon" class="fas fa-sun text-base text-amber-400"></i>
+      <!-- Mobile Right Container: Sliding Switch + Hamburger -->
+      <div class="md:hidden flex items-center gap-2.5">
+        <button id="themeToggleHeaderMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" title="Ganti Mode"
+                class="relative w-16 h-8 rounded-full p-1 bg-[#0A0E1A] border border-white/15 flex items-center justify-between px-2 cursor-pointer transition-colors duration-300 select-none flex-shrink-0">
+          <i class="fas fa-moon text-[11px] text-blue-300 pointer-events-none"></i>
+          <i class="fas fa-sun text-[11px] text-amber-400 pointer-events-none"></i>
+          <span id="themeToggleHeaderMobileThumb"
+                class="absolute left-1 top-1 w-6 h-6 rounded-full bg-slate-800 border border-white/20 shadow-md flex items-center justify-center transition-transform duration-300 ease-in-out pointer-events-none transform translate-x-0">
+            <i id="themeToggleHeaderMobileThumbIcon" class="fas fa-moon text-[10px] text-blue-300"></i>
+          </span>
         </button>
         <button id="mobileMenuBtn" aria-label="Buka Menu" class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white">
           <i id="menuIcon" class="fas fa-bars text-lg text-white"></i>
@@ -361,14 +371,17 @@
       <a href="#tentang" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Tentang</a>
       <a href="#keahlian" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Keahlian</a>
       <a href="#proyek" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Proyek</a>
-      <div class="pt-4 flex items-center gap-3 border-t border-white/[0.08]">
-        <button id="themeToggleMobile" type="button" aria-label="Ganti Tema" title="Ganti Tema"
-                class="w-11 h-11 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white cursor-pointer">
-          <i id="themeToggleMobileIcon" class="fas fa-sun text-base text-amber-400"></i>
+      <div class="pt-4 flex items-center justify-between gap-3 border-t border-white/[0.08]">
+        <span class="text-xs font-semibold text-slate-300">Mode Tampilan</span>
+        <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" title="Ganti Mode"
+                class="relative w-16 h-8 rounded-full p-1 bg-[#0A0E1A] border border-white/15 flex items-center justify-between px-2 cursor-pointer transition-colors duration-300 select-none flex-shrink-0">
+          <i class="fas fa-moon text-[11px] text-blue-300 pointer-events-none"></i>
+          <i class="fas fa-sun text-[11px] text-amber-400 pointer-events-none"></i>
+          <span id="themeToggleMobileThumb"
+                class="absolute left-1 top-1 w-6 h-6 rounded-full bg-slate-800 border border-white/20 shadow-md flex items-center justify-center transition-transform duration-300 ease-in-out pointer-events-none transform translate-x-0">
+            <i id="themeToggleMobileThumbIcon" class="fas fa-moon text-[10px] text-blue-300"></i>
+          </span>
         </button>
-        <a href="#kontak" class="btn-gradient flex-1 py-3 text-center rounded-xl text-white font-semibold text-sm">
-          Hubungi Saya
-        </a>
       </div>
     </div>
   </header>
@@ -509,7 +522,6 @@
             </div>
             <div>
               <h4 class="text-base font-bold text-white">Machine Learning Terapan</h4>
-              <span class="text-xs text-slate-400 font-medium">Precision Logic &amp; Mathematical Rigor</span>
               <p class="text-xs text-slate-300 mt-2 leading-relaxed">
                 Penerapan model supervised learning untuk klasifikasi gizi dan formula Z-Score WHO untuk evaluasi klinis yang akurat.
               </p>
@@ -522,7 +534,6 @@
             </div>
             <div>
               <h4 class="text-base font-bold text-white">Cloud-Native Edge</h4>
-              <span class="text-xs text-slate-400 font-medium">Serverless Architecture</span>
               <p class="text-xs text-slate-300 mt-2 leading-relaxed">
                 Integrasi Cloudflare Serverless Workers dan database terdistribusi D1 untuk akses database ultra-cepat dan tanpa maintenance server konvensional.
               </p>
@@ -535,7 +546,6 @@
             </div>
             <div>
               <h4 class="text-base font-bold text-white">Desain Berpusat Pengguna</h4>
-              <span class="text-xs text-slate-400 font-medium">UI/UX &amp; Usability</span>
               <p class="text-xs text-slate-300 mt-2 leading-relaxed">
                 Perancangan purwarupa antarmuka di Figma dengan riset alur pengguna (user journey), hierarki visual yang jelas, dan responsivitas tinggi (Studi Kasus TaniLink).
               </p>
@@ -941,25 +951,38 @@
       });
     }
 
-    // Theme Toggle Functionality (Dark / Light)
+    // Theme Toggle Sliding Switch Functionality (Left: Dark, Right: Light)
+    function updateSwitch(btnId, thumbId, thumbIconId, isLight) {
+      const btn = document.getElementById(btnId);
+      const thumb = document.getElementById(thumbId);
+      const thumbIcon = document.getElementById(thumbIconId);
+      if (btn) {
+        btn.setAttribute('aria-checked', isLight ? 'true' : 'false');
+        btn.setAttribute('title', isLight ? 'Mode Terang (Klik untuk Gelap)' : 'Mode Gelap (Klik untuk Terang)');
+      }
+      if (thumb) {
+        if (isLight) {
+          thumb.classList.remove('translate-x-0', 'bg-slate-800', 'border-white/20');
+          thumb.classList.add('translate-x-8', 'bg-white', 'border-slate-200');
+        } else {
+          thumb.classList.remove('translate-x-8', 'bg-white', 'border-slate-200');
+          thumb.classList.add('translate-x-0', 'bg-slate-800', 'border-white/20');
+        }
+      }
+      if (thumbIcon) {
+        thumbIcon.className = isLight ? 'fas fa-sun text-[10px] text-amber-500' : 'fas fa-moon text-[10px] text-blue-300';
+      }
+    }
+
     function applyTheme(theme) {
       const isLight = theme === 'light';
       document.documentElement.classList.toggle('light', isLight);
       document.documentElement.classList.toggle('dark', !isLight);
       document.documentElement.setAttribute('data-theme', theme);
-      
-      const iconClass = isLight ? 'fas fa-moon text-base text-slate-700' : 'fas fa-sun text-base text-amber-400';
-      const label = isLight ? 'Beralih ke Mode Gelap' : 'Beralih ke Mode Terang';
 
-      ['themeToggleIcon', 'themeToggleMobileIcon', 'themeToggleHeaderMobileIcon'].forEach(id => {
-        const icon = document.getElementById(id);
-        if (icon) icon.className = iconClass;
-      });
-
-      ['themeToggleBtn', 'themeToggleMobile', 'themeToggleHeaderMobile'].forEach(id => {
-        const btn = document.getElementById(id);
-        if (btn) btn.setAttribute('title', label);
-      });
+      updateSwitch('themeToggleBtn', 'themeToggleThumb', 'themeToggleThumbIcon', isLight);
+      updateSwitch('themeToggleMobile', 'themeToggleMobileThumb', 'themeToggleMobileThumbIcon', isLight);
+      updateSwitch('themeToggleHeaderMobile', 'themeToggleHeaderMobileThumb', 'themeToggleHeaderMobileThumbIcon', isLight);
     }
 
     function toggleTheme() {
