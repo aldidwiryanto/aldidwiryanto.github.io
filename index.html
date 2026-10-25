@@ -731,24 +731,20 @@
       </a>
 
       <!-- Desktop Nav Links with Sliding Bubble -->
-      <nav class="hidden md:flex items-center nav-pill-container md:translate-x-14">
+      <nav class="hidden md:flex items-center nav-pill-container">
         <div id="navBubble" class="nav-sliding-bubble"></div>
         <a href="#tentang" class="nav-link-item active" data-target="tentang">Tentang</a>
         <a href="#keahlian" class="nav-link-item" data-target="keahlian">Keahlian</a>
         <a href="#proyek" class="nav-link-item" data-target="proyek">Proyek</a>
+        <a href="#kontak" class="nav-link-item" data-target="kontak">Kontak</a>
       </nav>
 
-      <!-- Desktop Actions -->
-      <div class="hidden md:flex items-center gap-3">
+      <!-- Desktop Actions: Theme Switch shifted to far right -->
+      <div class="hidden md:flex items-center mr-2 md:mr-6">
         <!-- Theme Toggle Horizontal Sliding Switch (Left: Dark, Right: Light) -->
         <button id="themeToggleBtn" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
           <span id="themeToggleThumb" class="theme-switch-thumb pointer-events-none"><svg class="theme-icon-moon w-4 h-4 text-blue-200" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5"/><path d="M12 19.5v2.5"/><path d="m4.93 4.93 1.77 1.77"/><path d="m17.3 17.3 1.77 1.77"/><path d="M2 12h2.5"/><path d="M19.5 12h2.5"/><path d="m6.7 17.3-1.77 1.77"/><path d="m19.07 4.93-1.77 1.77"/></svg></span>
         </button>
-
-        <a href="#kontak" 
-           class="btn-gradient px-5 py-2.5 rounded-xl text-white font-semibold text-xs tracking-wide flex items-center justify-center">
-          <span>Hubungi Saya</span>
-        </a>
       </div>
 
       <!-- Mobile Right Container: Sliding Switch + Hamburger -->
@@ -768,6 +764,7 @@
       <a href="#tentang" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Tentang</a>
       <a href="#keahlian" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Keahlian</a>
       <a href="#proyek" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Proyek</a>
+      <a href="#kontak" class="mobile-link text-base text-slate-300 font-medium hover:text-white py-1">Kontak</a>
       <div class="pt-4 flex items-center justify-between gap-3 border-t border-white/[0.08]">
         <span class="text-xs font-semibold text-slate-300">Mode Tampilan</span>
         <button id="themeToggleMobile" type="button" role="switch" aria-label="Ganti Mode Terang dan Gelap" class="theme-switch-glass">
@@ -1422,9 +1419,6 @@
         }
       }
       let matchingItem = Array.from(navItems).find(item => item.getAttribute('data-target') === currentId);
-      if (!matchingItem && currentId === 'kontak') {
-        matchingItem = Array.from(navItems).find(item => item.getAttribute('data-target') === 'proyek');
-      }
       if (matchingItem && !matchingItem.classList.contains('active')) {
         navItems.forEach(i => i.classList.remove('active'));
         matchingItem.classList.add('active');
