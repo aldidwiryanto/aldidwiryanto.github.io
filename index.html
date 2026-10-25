@@ -655,6 +655,14 @@
       -webkit-backdrop-filter: blur(12px);
     }
 
+    @media (min-width: 768px) {
+      .nav-pill-container {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+      }
+    }
+
     html.light .nav-pill-container {
       background: rgba(240, 245, 255, 0.6);
       border: 1px solid rgba(210, 225, 245, 0.8);
@@ -723,7 +731,7 @@
 
   <!-- PERMANENT NAVBAR (NEVER HIDES) -->
   <header class="fixed top-0 left-0 right-0 z-[99999] bg-[#06080F]/90 backdrop-blur-md border-b border-white/[0.08]">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between relative">
       
       <!-- Navbar Brand: Wordmark Logo -->
       <a href="#" class="brand-logo text-white select-none transition-opacity hover:opacity-85 flex items-center ml-2 md:ml-6" aria-label="aldi">
@@ -731,7 +739,7 @@
       </a>
 
       <!-- Desktop Nav Links with Sliding Bubble -->
-      <nav class="hidden md:flex items-center nav-pill-container">
+      <nav class="hidden md:flex items-center nav-pill-container md:absolute md:left-1/2 md:-translate-x-1/2">
         <div id="navBubble" class="nav-sliding-bubble"></div>
         <a href="#tentang" class="nav-link-item active" data-target="tentang">Tentang</a>
         <a href="#keahlian" class="nav-link-item" data-target="keahlian">Keahlian</a>
