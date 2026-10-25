@@ -617,7 +617,7 @@
       view-transition-name: none !important;
     }
 
-        /* Tactile Glass & Clay Pill Badges (Hitam-Putih, Tanpa Efek Zoom) */
+        /* Tactile Glass & Clay Pill Badges (Hitam-Putih, Tanpa Efek Zoom, Identical Geometry for Zero Shift) */
     .tech-badge {
       display: inline-flex !important;
       align-items: center !important;
@@ -626,13 +626,14 @@
       user-select: none !important;
       transform: none !important;
       transition: none !important;
-      border-radius: 999px !important;
+      border-radius: 9999px !important;
       padding: 5px 13px !important;
       font-size: 11.5px !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.02em !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.015em !important;
       line-height: 1.4 !important;
-      border: none !important;
+      border: 1px solid transparent !important;
+      box-sizing: border-box !important;
 
       /* Dark Mode: Tactile Dark Slate/Navy Clay-Press Pill with White Text (Agak Kebiruan) */
       background: #1c2538 !important;
@@ -647,21 +648,22 @@
       cursor: default !important;
     }
 
-    /* Light Mode: Crisp Ice-Blue Glass Pill with Black Text (Tanpa Kuning/Cream) */
+    /* Light Mode: Crisp Ice-Blue Glass Pill with Black Text (Tanpa Kuning/Cream, Exact Same Geometry) */
     html.light .tech-badge {
       cursor: default !important;
       transform: none !important;
       transition: none !important;
       border-radius: 9999px !important;
-      padding: 5px 14px !important;
-      font-size: 12px !important;
+      padding: 5px 13px !important;
+      font-size: 11.5px !important;
       font-weight: 600 !important;
       letter-spacing: 0.015em !important;
       line-height: 1.4 !important;
+      border: 1px solid rgba(255, 255, 255, 0.95) !important;
+      box-sizing: border-box !important;
       background: linear-gradient(180deg, #F8FAFD 0%, #DCEBFA 100%) !important;
       backdrop-filter: blur(12px) !important;
       -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.95) !important;
       box-shadow: 0 4px 9px rgba(37, 99, 235, 0.08), 0 1px 3px rgba(37, 99, 235, 0.04), inset 0 2px 2px #FFFFFF, inset 0 -2px 3px rgba(30, 64, 175, 0.08) !important;
       color: #0F172A !important; /* Hitam Pekat Elegan */
     }
