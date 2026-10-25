@@ -1355,7 +1355,7 @@
   <!-- MINIMAL JAVASCRIPT LOGIC -->
   <script>
     // Smooth scroll for internal links without modifying URL hash in address bar
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]:not(.nav-link-item):not(.mobile-link)').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         e.preventDefault();
@@ -1443,12 +1443,13 @@
     let isClickScrolling = false;
     let clickLockTimer = null;
 
-    function lockScrollSpy() {
+    function lockScrollSpy(duration = 1600) {
       isClickScrolling = true;
       clearTimeout(clickLockTimer);
       clickLockTimer = setTimeout(() => {
         isClickScrolling = false;
-      }, 900);
+        onScrollSpy(); // Re-sync once smooth scroll has finished
+      }, duration);
     }
 
     window.addEventListener('wheel', () => { isClickScrolling = false; clearTimeout(clickLockTimer); }, { passive: true });
@@ -1475,13 +1476,21 @@
     function onScrollSpy() {
       if (isClickScrolling) return; // Prevent stutter when user clicks a nav link!
 
-      const scrollPos = window.scrollY + 160;
+      // Detect if user has reached or is near the bottom of the page (where 'kontak' lives)
+      const isAtBottom = (window.innerHeight + Math.ceil(window.scrollY)) >= (document.documentElement.scrollHeight - 80);
+      
       let currentId = 'tentang';
-      for (const sec of sections) {
-        if (sec.offsetTop <= scrollPos) {
-          currentId = sec.id;
+      if (isAtBottom) {
+        currentId = 'kontak';
+      } else {
+        const scrollPos = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
+        for (const sec of sections) {
+          if (sec.offsetTop <= scrollPos) {
+            currentId = sec.id;
+          }
         }
       }
+
       let matchingItem = Array.from(navItems).find(item => item.getAttribute('data-target') === currentId);
       if (matchingItem && !matchingItem.classList.contains('active')) {
         navItems.forEach(i => i.classList.remove('active'));
