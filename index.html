@@ -174,25 +174,64 @@
       filter: brightness(0.94) !important;
     }
 
-    /* Secondary Glass Button with White Border */
+    /* Secondary Glass Button with White Border & Tactile Press Down Effect */
     .btn-glass {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: all 0.2s ease;
-      transform: none !important;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.4, 1),
+                  background 0.15s ease,
+                  border-color 0.15s ease,
+                  box-shadow 0.1s ease !important;
+      transform: translateY(0) !important;
     }
     .btn-glass:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
-      transform: none !important;
+      transform: translateY(0) !important;
+    }
+    .btn-glass:active {
+      transform: translateY(2.5px) !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.45) !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    button, a {
-      transform: none !important;
+    /* Universal Tactile Button Press on All Buttons */
+    .btn-gradient:active,
+    .btn-glass:active,
+    #mobileMenuBtn:active,
+    .theme-switch-glass:active {
+      transform: translateY(2.5px) !important;
     }
-    button:hover, a:hover {
-      transform: none !important;
+
+    #mobileMenuBtn {
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.4, 1),
+                  background-color 0.15s ease,
+                  box-shadow 0.1s ease !important;
+      transform: translateY(0) !important;
+    }
+    #mobileMenuBtn:active {
+      background-color: rgba(255, 255, 255, 0.02) !important;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .theme-switch-glass {
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.4, 1),
+                  background 0.3s ease,
+                  box-shadow 0.1s ease !important;
     }
 
     /* Permanent Navbar - Always Visible, Never Hide on Scroll */
@@ -344,6 +383,15 @@
       background-color: #F8FAFC !important;
       border-color: rgba(148, 163, 184, 0.8) !important;
       color: #0F172A !important;
+    }
+    html.light .btn-glass:active {
+      transform: translateY(2.5px) !important;
+      background-color: #F1F5F9 !important;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08) !important;
+    }
+    html.light #mobileMenuBtn:active {
+      background-color: rgba(226, 232, 240, 0.8) !important;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1) !important;
     }
     html.light .btn-glass * {
       color: #1E293B !important;
